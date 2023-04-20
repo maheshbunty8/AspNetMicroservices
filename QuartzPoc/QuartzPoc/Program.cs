@@ -89,3 +89,26 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 
 await app.RunAsync();
+
+
+/*
+ // Create a job
+var job = JobBuilder.Create<YourJob>()
+    .WithIdentity("YourJob", "YourJobGroup")
+    .Build();
+
+// Create a trigger to run the job every hour
+var hourlyTrigger = TriggerBuilder.Create()
+    .WithIdentity("HourlyTrigger", "YourJobGroup")
+    .WithSchedule(CronScheduleBuilder.HourlySchedule())
+    .Build();
+
+// Create a trigger to run the job every day at 10 AM
+var dailyTrigger = TriggerBuilder.Create()
+    .WithIdentity("DailyTrigger", "YourJobGroup")
+    .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(10, 0))
+    .Build();
+
+// Attach the triggers to the job
+await scheduler.ScheduleJob(job, new List<ITrigger> { hourlyTrigger, dailyTrigger }, true);
+ */
